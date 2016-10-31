@@ -13,7 +13,7 @@ BLUE = (0, 0, 255)
 pygame.init()
 screen_y = 700
 screen_x = 1000
-amount_of_snow = 1000
+amount_of_snow = 10
 snow_list = []
 for i in range(amount_of_snow):
     snow_list.append([random.randint(0, screen_x), random.randint(0, screen_y)])
@@ -47,11 +47,11 @@ while(not done):
         x = snow_list[i][0]
         y = snow_list[i][1]
         
-        for b in range(10):
-            pygame.draw.circle(screen, (color_list[i][0], color_list[i][1],color_list[i][2]), [x - b, y - b], 1)
+        for b in range(1000):
+            pygame.draw.circle(screen, (color_list[i][0], color_list[i][1],color_list[i][2]), [x - b, y - b], 10)
         
-        snow_list[i][1] += 2
-        snow_list[i][0] += 2
+        snow_list[i][1] += 10
+        snow_list[i][0] += 10
         
         if(snow_list[i][1] >= screen_y + b):
             snow_list[i][1] = 0
