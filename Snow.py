@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 
 BLACK = (0, 0, 0)
@@ -10,18 +11,19 @@ BLUE = (0, 0, 255)
 
 
 pygame.init()
-screen_y = 500
-screen_x = 500
+screen_y = 700
+screen_x = 1000
+amount_of_snow = 1000
 snow_list = []
-for i in range(50):
+for i in range(amount_of_snow):
     snow_list.append([random.randint(0, screen_x), random.randint(0, screen_y)])
-size = (500, screen_y)
+size = (screen_x, screen_y)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("My Game")
+pygame.display.set_caption("Snow")
 
 
 color_list = []
-for i in range(50):
+for i in range(amount_of_snow):
     randcolor = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     color_list.append(randcolor)
     
@@ -45,7 +47,7 @@ while(not done):
         x = snow_list[i][0]
         y = snow_list[i][1]
         
-        for b in range(100):
+        for b in range(10):
             pygame.draw.circle(screen, (color_list[i][0], color_list[i][1],color_list[i][2]), [x - b, y - b], 1)
         
         snow_list[i][1] += 2
